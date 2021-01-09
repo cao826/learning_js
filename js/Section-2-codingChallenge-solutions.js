@@ -41,7 +41,7 @@ const data3 = {
     dolphinsScores:  [97, 112, 101],
     koalasScores: [109, 95, 106]
 }
-
+/*
 function getAvg(lst){
     let sum = 0;
     for (const val of lst){
@@ -59,3 +59,60 @@ function getAvgScores(data){
 function checkMins(data){
     if ((data.dolphinsAvg < 100) && (data.koalasAvg < 100)) console.log('No one wins!');
 }
+*/
+
+// cleaning up the code, making it object oriented like I feel it ought to be
+
+function getAvg(lst){
+    let sum = 0;
+    for (const val of lst){
+        sum += val;
+    }
+    return ( sum / (lst.length));
+}
+
+class GymMeet {
+    constructor(data) {
+        this.dolphinsScores = data.dolphinsScores;
+        this.koalasScores = data.koalasScores;
+
+        this.dolphinsAvg = getAvg(this.dolphinsScores);
+        this.koalasAvg = getAvg(this.koalasScores);
+
+    }
+    checkNoneQualify() {
+        if ((this.koalasAvg) < 100 && (this.dolphinsAvg < 100)) {
+            return true;
+        }
+    }
+    checkIsDraw() {
+        if (this.koalasAvg == this.dolphinsAvg) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    findWinningTeam() {
+        (this.koalasAvg > this.dolphinsAvg) ? console.log('the koalas win the meet!') : console.log('the dolphins win the meet!');
+    }
+    adjudicate(){
+        if (this.checkNoneQualify()) {
+            console.log('Neither team qualified');
+            return;
+            }
+        if (this.checkIsDraw()) {
+            console.log('The teams have tied!');
+            return;
+        }
+        this.findWinningTeam();
+    }
+}
+
+const meet1 = new GymMeet(data1);
+meet1.adjudicate();
+
+const meet2 = new GymMeet(data2);
+meet2.adjudicate();
+
+const meet3 = new GymMeet(data3);
+meet3.adjudicate();
