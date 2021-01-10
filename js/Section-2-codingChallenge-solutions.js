@@ -84,3 +84,24 @@ const meet3 = new GymMeet(data3);
 meet3.adjudicate();
 */
 
+//                             Coding Challenge 4
+
+/*
+function calcTip(bill) {
+    const isUsual = ((bill < 300) && (bill > 50));
+    let tip= 0;
+    isUsual ? tip = (.15 * bill) : tip = (.20 * bill);
+
+    return tip;
+}
+
+function printTipStatement(bill) {
+    const tip = calcTip(bill);
+    const statement = `The bill was ${bill}, the tip was ${tip}, and the total value ${(bill + tip)}`;
+    console.log(statement);
+}
+
+printTipStatement(275);
+printTipStatement(40);
+printTipStatement(430);
+*/
