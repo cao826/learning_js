@@ -46,3 +46,25 @@ print(passenger.name); //this value does change. It was passed by reference.
 //
 // higher order functions can accept a fn as a param, OR return a function.
 // higher order function require first class functions
+
+/* Section 10: A Closer Look at Functions: Functions Accepting Callback Functions */
+
+const mult = function (a, b) {
+    return a * b;
+}
+
+const add = function (a, b) {
+
+}
+
+function performOperation(a, b, operation) {
+    return operation(a, b);
+}
+
+print(performOperation(5, 3, mult));
+
+// functions also have properties. There is a name property.
+//
+// forEach method looks hella cool
+
+
