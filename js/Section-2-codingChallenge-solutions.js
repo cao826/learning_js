@@ -27,41 +27,7 @@ console.log(markHigherBMI);
 
 // data first:
 
-const data1 = {
-    dolphinsScores:  [96, 108, 89],
-    koalasScores: [88, 91, 110]
-}
-
-const data2 = {
-    dolphinsScores:  [97, 112, 101],
-    koalasScores: [109, 95, 123]
-}
-
-const data3 = {
-    dolphinsScores:  [97, 112, 101],
-    koalasScores: [109, 95, 106]
-}
 /*
-function getAvg(lst){
-    let sum = 0;
-    for (const val of lst){
-        sum += val;
-    }
-    return ( sum / (lst.length));
-}
-
-function getAvgScores(data){
-    data['dolphinsAvg'] = getAvg(data.dolphinsScores);
-    data['koalasAvg'] = getAvg(data.koalasScores);
-
-}
-
-function checkMins(data){
-    if ((data.dolphinsAvg < 100) && (data.koalasAvg < 100)) console.log('No one wins!');
-}
-*/
-
-// cleaning up the code, making it object oriented like I feel it ought to be
 
 function getAvg(lst){
     let sum = 0;
@@ -116,3 +82,5 @@ meet2.adjudicate();
 
 const meet3 = new GymMeet(data3);
 meet3.adjudicate();
+*/
+
