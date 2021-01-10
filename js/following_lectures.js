@@ -67,4 +67,9 @@ print(performOperation(5, 3, mult));
 //
 // forEach method looks hella cool
 
+  /* Section 10: A Closer Look at Functions: Functions Returning Functions */
 
+const custMult = (num) =>  (a) => (a * num);
+
+const twice = custMult(2);
+print(twice(4));
