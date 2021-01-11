@@ -73,3 +73,39 @@ const custMult = (num) =>  (a) => (a * num);
 
 const twice = custMult(2);
 print(twice(4));
+
+    /* Section 10: A Closer Look at Functions: The call and apply Methods */
+
+// hard. will do later
+
+         /* Section 10: A Closer Look at Functions: The bind Method */
+
+const additionInstance1 = {
+    a: 7,
+    b: 5,
+    add() {
+        return (this.a + this.b);
+    }
+};
+
+
+//print(additionInstance1.add());
+
+const additionInstance2 = {
+    a:37,
+    b:55,
+}
+
+const adder2 = additionInstance1.add.bind(additionInstance2);
+print(adder2());
+
+// bind method is used a lot with event handlers. 
+// also used for "partial application" (preset a param)
+
+
+// here is an example of binding the addition function to be general function and to always add three
+
+const divide = (a, b) => b/a;
+
+const divideByThree = divide.bind(null, 3);
+console.log(divideByThree(15));
