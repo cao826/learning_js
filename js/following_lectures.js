@@ -109,3 +109,21 @@ const divide = (a, b) => b/a;
 
 const divideByThree = divide.bind(null, 3);
 console.log(divideByThree(15));
+
+/* Section 10: A Closer Look at Functions: Immediately Invoked Function Expressions */
+
+// done by wrapping everything aroudn parenthesis
+
+(function once() {
+    print('this function cannot be called again!')
+})();
+
+// everything inside of the IIFE cannot be accessed in the gloabal scope
+
+             /* Section 10: A Closer Look at Functions: Closures */
+
+// closures allow functions to 'remember' ther variables'
+//
+// A function has access to the variable environment of the execution context in which it was created, EVEN AFTER THAT CONTEXT IS POPPED OFF THE STACK
+
+// the closure is exactly this connection that allows this to happen
