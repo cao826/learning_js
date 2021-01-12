@@ -67,7 +67,31 @@ function  printGoals(...players) {
     }
     console.log(`There were ${numGoalsinplayers} goals scored amongst these players`);
 }
-console.log(team1, draw, team2);
+//console.log(team1, draw, team2);
 
 // 7.
-team1 < team2 && console.log('Team 1 is more likely to win');
+//team1 < team2 && console.log('Team 1 is more likely to win');
+
+                            /* Coding Challenge 2 */
+// 1.
+
+for(const [index, player] of game.scored.entries()) {
+   console.log(`Goal ${index +1}: ${player}`);
+}
+
+// 2.
+let avg = 0;
+for(const key of Object.keys(game.odds)) {
+    avg += game.odds[key];
+}
+avg /= 3;
+console.log(avg);
+
+// 3.
+
+for (const key of Object.keys(game.odds)) {
+    let outcome = game[key] ?? 'draw';
+    if (outcome != 'draw')
+    { outcome = 'victory ' + outcome;}
+    console.log(`Odd of ${outcome}: ${game.odds[key]}`);
+}
