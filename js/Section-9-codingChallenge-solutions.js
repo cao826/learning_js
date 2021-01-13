@@ -137,3 +137,69 @@ for(let [key, value] of gameEvents.entries()) {
     console.log(outStr);
 }
 
+                            /* Coding Challenge 4 */
+
+// Starter code
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const stripSpaces = function () {
+    const trimmedInput = document.querySelector('textarea').value.trim();
+    document.querySelector('textarea').value = trimmedInput;
+}
+
+const fixLastWord = function (word) {
+    console.log('we enter the fix last word fn');
+    const correctFirstChar = word[0].toUpperCase();
+    const correctRestOfWord = word.slice(1).toLowerCase();
+    const correctLastWord = correctFirstChar + correctRestOfWord;
+    return correctLastWord;
+}
+
+
+const snakeCaseToCamelCaseTwoWords = function (word) {
+    console.log('We enter the word fixing function');
+    console.log(word);
+    let wordsArray = word.trim().split('_');
+    console.log(`after splitting by _: ${wordsArray}`);
+    let lastWord = wordsArray[1];
+    console.log(`The last word: ${lastWord}`);
+    const camelLastWord = fixLastWord(lastWord);
+    console.log(`The fixed last word: ${camelLastWord}`);
+    wordsArray[1] = camelLastWord;
+    const camelWord = wordsArray.join('');
+    console.log(`the fixed word: ${camelWord}`);
+    return camelWord;
+
+}
+
+const addChecks = function (word, num) {
+    let checkedWord = word;
+    for (let i = 0; i < num; i++) {
+        checkedWord += '✅'
+    }
+    return checkedWord;
+}
+
+
+const cleanInput = function () {
+    console.log('We enter the cleanInput function');
+    let trimmedInputText = document.querySelector('textarea').value.trim();
+    console.log(`after first trim: ${trimmedInputText}`);
+    let trimmedTextArray = trimmedInputText.split('\n');
+    console.log(`trimmedTextArray: ${trimmedTextArray}`);
+    console.log('We enter the for loop:');
+for(let i = 0; i <= (trimmedTextArray.length - 1); i++) {
+    const camelCaseWord = snakeCaseToCamelCaseTwoWords(trimmedTextArray[i]);
+    const fixedWord = addChecks(camelCaseWord, (i+1));
+    trimmedTextArray[i] = fixedWord;
+    }
+    const fixedInputText = trimmedTextArray.join('\n');
+    console.log(fixedInputText);
+    document.querySelector('textarea').value = fixedInputText;
+    return fixedInputText;
+}
+
+
+
+document.querySelector('button').addEventListener('click', cleanInput);
