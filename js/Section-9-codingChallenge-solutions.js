@@ -142,7 +142,7 @@ for(let [key, value] of gameEvents.entries()) {
 // Starter code
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
-
+/*
 const stripSpaces = function () {
     const trimmedInput = document.querySelector('textarea').value.trim();
     document.querySelector('textarea').value = trimmedInput;
@@ -203,3 +203,120 @@ for(let i = 0; i <= (trimmedTextArray.length - 1); i++) {
 
 
 document.querySelector('button').addEventListener('click', cleanInput);
+*/
+
+const readInput = function () {
+    let textInput = document.querySelector('textarea').value;
+    console.log(textInput);
+    return textInput;
+}
+
+
+const splitByCarriageReturn = function () {
+    let unsplitInput = readInput();
+    console.log(unsplitInput.split('\n'));
+    return unsplitInput.split('\n');
+}
+
+/* Everyting from here on out should take in the split array */
+
+const  trimByLine = function (txtArray){
+    for (let i = 0; i < txtArray.length; i++) {
+        txtArray[i] = txtArray[i].trim();
+    }
+    console.log(txtArray);
+    return txtArray;
+}
+
+const fixLastWord = function (word) {
+    console.log('we enter the fix last word fn');
+    const correctFirstChar = word[0].toUpperCase();
+    const correctRestOfWord = word.slice(1).toLowerCase();
+    const correctLastWord = correctFirstChar + correctRestOfWord;
+    return correctLastWord;
+}
+
+
+const snakeCaseToCamelCaseTwoWords = function (word) {
+    console.log('We enter the word fixing function');
+    console.log(word);
+    let wordsArray = word.trim().split('_');
+    console.log(`after splitting by _: ${wordsArray}`);
+    let lastWord = wordsArray[1];
+    console.log(`The last word: ${lastWord}`);
+    const camelLastWord = fixLastWord(lastWord);
+    console.log(`The fixed last word: ${camelLastWord}`);
+    wordsArray[1] = camelLastWord;
+    wordsArray[0] = wordsArray[0].toLowerCase();
+    const camelWord = wordsArray.join('');
+    console.log(`the fixed word: ${camelWord}`);
+    return camelWord;
+
+}
+
+const camelCaseAllWords = function (txtArray){
+    for (let i = 0; i < txtArray.length; i++) {
+        txtArray[i] = snakeCaseToCamelCaseTwoWords(txtArray[i]);
+    }
+    console.log(`Array with all words camelCase: ${txtArray}`);
+    return txtArray;
+}
+
+const getTotalPadNumber = function (txtArray){
+    let maxLength = 0;
+    for(let word of txtArray) {
+        console.log(`length of word ${word} is ${word.length}`);
+        if (word.length > maxLength) {
+            maxLength = word.length;
+        }
+    }
+    console.log(`the total pad length is ${(maxLength + 2)}`);
+    return (maxLength + 2);
+}
+
+const padWord = function (totalPadNumber, word){
+    let paddedWord = word.padEnd(totalPadNumber);
+    console.log(`padded word: ${paddedWord}`);
+    return paddedWord;
+}
+
+const padAllLines = function (totalPadNumber, txtArray){
+    for (let i = 0; i < txtArray.length; i++){
+        txtArray[i] = padWord(totalPadNumber,txtArray[i]);
+    }
+    console.log(`array after padding all words: ${txtArray}`);
+    return txtArray;
+}
+
+const addChecks = function (word, num) {
+    let checkedWord = word;
+    for (let i = 0; i < num; i++) {
+        checkedWord += '✅'
+    }
+    return checkedWord;
+}
+
+const checkOffArray = function (txtArray){
+    for(let i = 0; i < txtArray.length; i++) {
+        txtArray[i] = addChecks(txtArray[i], (i+1));
+    }
+}
+
+const doThing = function () {
+    let txtInput = readInput();
+    let txtArray = splitByCarriageReturn();
+    trimByLine(txtArray);
+    camelCaseAllWords(txtArray);
+    const totalPadNumber = getTotalPadNumber(txtArray);
+    padAllLines(totalPadNumber, txtArray);
+    checkOffArray(txtArray);
+    const cleanedInput = txtArray.join('\n');
+    document.querySelector('textarea').value = cleanedInput;
+
+}
+
+
+
+document.querySelector('button').addEventListener('click', doThing);
+
+
