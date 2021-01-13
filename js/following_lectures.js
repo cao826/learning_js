@@ -164,5 +164,28 @@ checkMiddleSeat('3E');
 
 //Javascript automatically turns a string literal into a string object with the same value.
 
+print(airline.toLowerCase());
+print(airline.toUpperCase());
 
+const properUser = 'cao826';
+const userInput = 'Cao826 \n';
 
+const cleanedUserInput = userInput.toLowerCase().trim();
+
+const priceUk = "288,07£";
+const priceUs = priceUk.replace('£', '$').replace(',', '.');
+
+print(priceUs);
+
+const doorStatement = 'door door door door door door door door door door lmao';
+
+const gateStatement = doorStatement.replace(/door/g, 'gate');
+print(gateStatement);
+
+const aBigPath = '/Library/ColorSync/Profiles/';
+const newPath = aBigPath.split('/');
+print(aBigPath);
+print(newPath);
+
+const strFromArray = ['I', 'am', 'inevitable'].join(' ');
+print(strFromArray);
