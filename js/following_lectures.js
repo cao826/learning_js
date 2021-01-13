@@ -127,3 +127,42 @@ console.log(divideByThree(15));
 // A function has access to the variable environment of the execution context in which it was created, EVEN AFTER THAT CONTEXT IS POPPED OFF THE STACK
 
 // the closure is exactly this connection that allows this to happen
+
+
+                          /* Section 9, lecture 120 */
+
+const airline = 'EVIL Airlines';
+const plane = 'EVIL331';
+console.log('ABC'[0]);
+console.log('a very long string. Like, it is very very long. SO long. like, long ebough to reallly bore you. In reality, I should have used lorem ipsum.'.length);
+
+// some array-string methods
+console.log(airline.indexOf('L')); // returns the first occurence.
+console.log(airline.lastIndexOf('nes'));
+
+// why are indexes useful? -- extracting with slice. But, we need indecies for this
+
+console.log(airline.slice(4, 7)); // stoops right before the end index.
+
+// cool way to get a word
+console.log(airline.slice(0, airline.indexOf(' ')));
+print(airline.slice(-1));
+
+const checkMiddleSeat = function (seat) {
+    // suppose 'B' and 'E' are middle seats 
+    const s = seat.slice(-1);
+    if (s === 'B' || s === 'E') {
+        print('You got unlucky!');
+    } else {
+        print('You got lucky!');
+    }
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+//Javascript automatically turns a string literal into a string object with the same value.
+
+
+

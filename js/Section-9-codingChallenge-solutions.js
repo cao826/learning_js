@@ -95,3 +95,45 @@ for (const key of Object.keys(game.odds)) {
     { outcome = 'victory ' + outcome;}
     console.log(`Odd of ${outcome}: ${game.odds[key]}`);
 }
+
+const gameEvents = new Map([ 
+[17, '⚽ GOAL'],
+[36, '🔁 Substitution'],
+[47, '⚽ GOAL'],
+[61, '🔁 Substitution'],
+[64, '🔶 Yellow card'], 
+[69, '🔴 Red card'],
+[70, '🔁 Substitution'], 
+[72, '🔁 Substitution'],
+[76, '⚽ GOAL'], 
+[80, '⚽ GOAL'],
+[92, '🔶 Yellow card']
+]);
+
+// 1.
+
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+// 2.
+
+gameEvents.delete(64);
+
+// 3.
+
+let newKeys = [...gameEvents.keys()];
+let sumDiff = 17;
+for (let i = 0; i < (newKeys.length - 1); i++) {
+    sumDiff += (newKeys[i+1] - newKeys[i]);
+}
+const eventAvg = Math.trunc(sumDiff/10)
+console.log(eventAvg);
+
+// 4.
+
+for(let [key, value] of gameEvents.entries()) {
+    let outStr = `${key}: ${value}`;
+    (key > 45) ? outStr = '[SECOND HALF] ]' + outStr : outStr = '[FIRST HALF] ' + outStr;
+    console.log(outStr);
+}
+
