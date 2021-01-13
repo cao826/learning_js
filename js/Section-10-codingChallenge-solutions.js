@@ -64,3 +64,18 @@ question: "What is your favourite programming language?",
 };
 
 document.querySelector('.poll').addEventListener('click', poll.runPoll.bind(poll));
+
+
+                      /* Section 10 coding Challenge 2 */
+
+(function () {
+const header = document.querySelector('h1'); header.style.color = 'red';
+
+const body = document.querySelector('body')
+    body.addEventListener('click', function(){
+    header.style.color = 'blue';
+});
+}
+
+)();
+
